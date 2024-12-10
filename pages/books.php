@@ -59,9 +59,9 @@ $genres = $genresStmt->fetchAll(PDO::FETCH_COLUMN);
 
 <div class="row">
 <form action="" method="GET" class="form-inline justify-content-center">
-        <input type="hidden" name="page" value="books"> <!-- Скрито поле -->
+        <input type="hidden" name="page" value="books">
         <div class="input-group">
-            <input type="text" name="search" class="form-control w-50" placeholder="Търсете по заглавие или автор" value="<?php echo htmlspecialchars($search); ?>">
+            <input type="text" name="search" class="form-control w-50" placeholder="Търсете по заглавие" value="<?php echo htmlspecialchars($search); ?>">
             <button type="submit" class="btn btn-primary ml-2">Търсене</button>
         </div>
     </form>
