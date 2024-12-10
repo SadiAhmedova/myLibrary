@@ -1,14 +1,16 @@
 <?php
 
 try {
-    $host = '127.0.0.1';
-    $db   = 'my_library';
-    $user = 'root';
-    $pass = '';
-    $charset = 'utf8mb4';
+    $url = parse_url(getenv("DATABASE_URL"));
 
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
+    $host = $url["host"];
+    $user = $url["user"];
+    $pass = $url["pass"];
+    $db = ltrim($url["path"], "/");
+    
+    $dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$user;password=$pass";
+    $pdo = new PDO($dsn);
+    
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
