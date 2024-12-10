@@ -3,12 +3,13 @@
 try {
     $url = parse_url(getenv("DATABASE_URL"));
 
-    $host = $url["host"];
-    $user = $url["user"];
-    $pass = $url["pass"];
-    $db = ltrim($url["path"], "/");
-    
-    $dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$user;password=$pass";
+    $host = 'd6ybckq58s9ru745.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+    $db   = 'jkby0y23ud5v4uld';
+    $user = 'ar04n0qy5wvxa50h';
+    $pass = 'y14wprujpq2tdm6i';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
     $pdo = new PDO($dsn);
     
     $options = [
