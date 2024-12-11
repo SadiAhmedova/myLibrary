@@ -16,17 +16,7 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
-
     $pdo = new PDO($dsn, $user, $pass, $options);
-
-    $sql = file_get_contents('my_library.sql'); 
-
-    if ($sql === false) {
-        throw new Exception("Could not read the SQL file.");
-    }
-
-    $pdo->exec($sql);
-    echo "SQL script executed successfully.";
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     exit;
