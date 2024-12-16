@@ -1,9 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+
 require_once('../db.php');
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 $id = intval($_SESSION['user_id'] ?? 0);
 

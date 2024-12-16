@@ -47,7 +47,7 @@ $inProgressBooks = $inProgressStmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="d-flex justify-content-between">
             <a href="?page=edit_profile&id='<?php $_SESSION['user_id']; ?>" class="btn btn-warning">Редактирай профила</a>
             
-            <form action="./handlers/handle_delete_profile.php" method="POST" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете акаунта си?');">
+            <form action="./handlers/handle_delete_profile.php" method="POST" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете профила си, заедно с това ще се изтрият и вашите книги?');">
                 <button type="submit" class="btn btn-danger">Изтрий акаунта</button>
             </form>
 
@@ -121,8 +121,8 @@ $inProgressBooks = $inProgressStmt->fetchAll(PDO::FETCH_ASSOC);
                             '<div class="mt-auto">
                                 <div class="card-footer d-flex justify-content-between">
                                     <a class="btn btn-sm btn-warning" href="?page=edit_book&id=' . $book['id'] . '">Редактирай</a>
-                                    <form method="POST" action="./handlers/handle_delete_book.php" onsubmit="return confirm(\'Сигурни ли сте, че искате да изтриете профила си, заедно с това ще се изтрият и вашите книги?\');">
-                                        <input type="hidden" name="id" value="' . $book['id'] . '">
+                                    <form method="POST" action="./handlers/handle_delete_book.php" onsubmit="return confirm(\'Сигурни ли сте, че искате да изтриете книгата си?\');">
+                                        <input type="hidden" name="id" value="' . htmlspecialchars($book['id']) . '">
                                         <button type="submit" class="btn btn-sm btn-danger">Изтрий</button>
                                     </form>
                                 </div>

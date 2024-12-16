@@ -15,7 +15,7 @@ foreach ($_POST as $key => $value) {
         break;
     }
 }
-if(empty($error)){
+if(!empty($error)){
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Невалиден имейл!';
     }
