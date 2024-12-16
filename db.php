@@ -1,15 +1,14 @@
 <?php
 
 try {
-    $url = parse_url(getenv("DATABASE_URL"));
-
-    $host = 'd6ybckq58s9ru745.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-    $db   = 'jkby0y23ud5v4uld';
-    $user = 'ar04n0qy5wvxa50h';
-    $pass = 'y14wprujpq2tdm6i';
+    $host = '127.0.0.1';
+    $db   = 'my_library';
+    $user = 'my_library_user';
+    $pass = '123456';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+  
 
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
