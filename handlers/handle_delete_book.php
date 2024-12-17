@@ -24,5 +24,3 @@ if ($stmt->execute([':id' => $id])) {
 
 header('Location: ../index.php?page=books');
 exit;
-
-?>

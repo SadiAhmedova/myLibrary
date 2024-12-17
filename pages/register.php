@@ -6,19 +6,41 @@
     <h3 class="text-center">Регистрация</h3>
     <div class="mb-3">
         <label for="username" class="form-label">Потребителско име</label>
-        <input type="username" class="form-control" id="username" name="username" value="<?php echo $flash['data']['username'] ?? '' ?>">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="username" 
+            name="username" 
+            value="<?php echo htmlspecialchars($flash['data']['username'] ?? ''); ?>" 
+            required>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Имейл</label>
-        <input type="email" class="form-control" id="email" name="email" value="<?php echo $flash['data']['email'] ?? '' ?>">
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            value="<?php echo htmlspecialchars($flash['data']['email'] ?? ''); ?>" 
+            required>
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Парола</label>
-        <input type="password" class="form-control" id="password" name="password">
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            required>
     </div>
     <div class="mb-3">
         <label for="repeat_password" class="form-label">Повтори парола</label>
-        <input type="password" class="form-control" id="repeat_password" name="repeat_password">
+        <input 
+            type="password" 
+            class="form-control" 
+            id="repeat_password" 
+            name="repeat_password" 
+            required>
     </div>
     <button type="submit" class="btn btn-primary mx-auto">Регистрирай се</button>
 </form>

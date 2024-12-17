@@ -76,5 +76,4 @@ if ($stmt->execute($params)) {
 
 header('Location: ../index.php?page=books');
 exit;
-
 ?>

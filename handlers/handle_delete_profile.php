@@ -1,5 +1,4 @@
 <?php
-
 require_once('../db.php');
 
 $id = intval($_SESSION['user_id'] ?? 0);

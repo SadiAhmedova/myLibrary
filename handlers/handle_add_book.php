@@ -101,5 +101,3 @@ if ($stmt->execute($params)) {
     header('Location: ../index.php?page=add_book');
     exit;
 }
-
-?>
