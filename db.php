@@ -4,7 +4,7 @@ try {
     $host = '127.0.0.1';
     $db   = 'my_library';
     $user = 'my_library_user';
-    $pass = '123456';
+    $pass = 'StRoNgPaSs123.!';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

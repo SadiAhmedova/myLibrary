@@ -19,7 +19,7 @@ $profile = $stmt->fetch();
         <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($profile['email'] ?? ''); ?>">
     </div>
     <div class="mb-3">
-        <label for="old_password" class="form-label">Стара пар��ла</label>
+        <label for="old_password" class="form-label">Стара парола</label>
         <input type="password" class="form-control" id="old_password" name="old_password">
     </div>
     <div class="mb-3">

@@ -2,7 +2,6 @@
 
 require_once('../db.php');
 
-
 $title = $_POST['title'] ?? '';
 $author = $_POST['author'] ?? '';
 $genre = $_POST['genre'] ?? '';
@@ -13,12 +12,9 @@ $language = $_POST['language'] ?? '';
 
 $user_id = $_SESSION['user_id'] ?? null;
 
-
-
-if (empty($title)|| empty($author) || empty($genre)||empty($pages)||empty($content) ||empty($language)) {
+if (empty($title) || empty($author) || empty($genre) || empty($pages) || empty($content) || empty($language)) {
     $_SESSION['flash']['message']['type'] = 'danger';
     $_SESSION['flash']['message']['text'] = "Моля попълнете всички полета!";
-
 
     $_SESSION['form_data'] = [
         'title' => $title,
@@ -26,17 +22,32 @@ if (empty($title)|| empty($author) || empty($genre)||empty($pages)||empty($conte
         'genre' => $genre,
         'pages' => $pages,
         'content' => $content,
-        'language' =>  $language
+        'language' => $language
     ];
-
 
     header('Location: ../index.php?page=add_book');
     exit;
 }
 
-if (empty($image['name']) || $image['error'] != 0) {
+if ($image['error'] !== UPLOAD_ERR_OK) {
+    switch ($image['error']) {
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            $error_message = "Файлът е твърде голям.";
+            break;
+        case UPLOAD_ERR_PARTIAL:
+            $error_message = "Файлът беше частично качен.";
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            $error_message = "Няма качен файл.";
+            break;
+        default:
+            $error_message = "Възникна грешка при качването на корицата!";
+            break;
+    }
+
     $_SESSION['flash']['message']['type'] = 'danger';
-    $_SESSION['flash']['message']['text'] = "Моля качете снимка!";
+    $_SESSION['flash']['message']['text'] = $error_message;
 
     $_SESSION['form_data'] = [
         'title' => $title,
@@ -84,8 +95,8 @@ $params = [
     ':pages' => $pages,
     ':content' => $content,
     ':user_id' => $user_id,
-    ':image' =>$new_file_name,
-    'language' => $language
+    ':image' => $new_file_name,
+    ':language' => $language
 ];
 
 if ($stmt->execute($params)) {
@@ -101,3 +112,4 @@ if ($stmt->execute($params)) {
     header('Location: ../index.php?page=add_book');
     exit;
 }
+?>
