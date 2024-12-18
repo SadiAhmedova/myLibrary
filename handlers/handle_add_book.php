@@ -34,16 +34,15 @@ if ($image['error'] !== UPLOAD_ERR_OK) {
         case UPLOAD_ERR_INI_SIZE:
         case UPLOAD_ERR_FORM_SIZE:
             $error_message = "Файлът е твърде голям.";
-            break;
+
         case UPLOAD_ERR_PARTIAL:
             $error_message = "Файлът беше частично качен.";
-            break;
+ 
         case UPLOAD_ERR_NO_FILE:
             $error_message = "Няма качен файл.";
-            break;
+ 
         default:
             $error_message = "Възникна грешка при качването на корицата!";
-            break;
     }
 
     $_SESSION['flash']['message']['type'] = 'danger';
